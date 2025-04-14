@@ -1,0 +1,5 @@
+@mixin min-width($breakpoint) { // использование @include min-width($bp-__)
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}

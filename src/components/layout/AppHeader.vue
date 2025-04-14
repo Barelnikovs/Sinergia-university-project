@@ -1,9 +1,13 @@
 <script setup>
-
+  import { RouterLink } from "vue-router";
 </script>
 
 <template>
-  $END$
+  <div class="container">
+    <header>
+
+    </header>
+  </div>
 </template>
 
 <style scoped lang="scss">

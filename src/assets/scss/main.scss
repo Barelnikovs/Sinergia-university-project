@@ -2,3 +2,12 @@
 @import './variables';
 @import './breakpoints';
 @import './fonts';
+@import './mixins';
+
+@include min-width($bp-lg) {
+  .container {
+    width: clamp(1024px, 61%, 1920px);
+    margin: 0 auto;
+    border: 1px solid black;
+  }
+}
