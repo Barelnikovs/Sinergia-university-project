@@ -1,11 +1,11 @@
-const personalData = {
+const tPersonalData = {
     text: 'Даю согласие на обработку персональных данных, получение рассылок, а также соглашаюсь c политикой конфиденциальности',
     link: 'политикой конфиденциальности'
 }
-const header = {
+const tHeader = {
     download: 'Скачать программу обучения'
 }
-const main = {
+const tMain = {
     mainTitle: {
         part1: 'Погрузись в ',
         paintedPart: 'мир киберспорта',
@@ -212,7 +212,7 @@ const main = {
         ask4: 'Какие документы нужны для поступления?',
     }
 }
-const footer = {
+const tFooter = {
     download: 'Скачать программу обучения',
     email: 'synergycybersport@mail.com',
     followUs: 'Следи за нами в соц. сетях!',
@@ -221,4 +221,4 @@ const footer = {
     privacyPolicy: 'Политика конфиденциальности'
 }
 
-export { personalData, header, main, footer }
+export { tPersonalData, tHeader, tMain, tFooter }
