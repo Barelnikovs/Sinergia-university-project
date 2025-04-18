@@ -1,0 +1,7 @@
+@forward './variables';
+@forward './mixins';
+@forward './breakpoints';
+@forward './reset';
+@forward './fonts';
+
+// Этот файл сделан для vite.config, чтобы везде были видны переменные и миксины
