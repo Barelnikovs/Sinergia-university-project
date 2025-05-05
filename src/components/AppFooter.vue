@@ -18,7 +18,7 @@ import {RouterLink} from "vue-router";
           </router-link>
         </div>
         <div class="download">
-          <a href="#">
+          <a href="#" target="_blank" rel="noopener noreferrer">
             {{ tHeader.download }}
             <img src="@/assets/images/icons/download.svg" alt="download program">
           </a>
@@ -44,15 +44,15 @@ import {RouterLink} from "vue-router";
             <p>{{ tFooter.doNotMissNews }}</p>
           </div>
           <form class="followForm">
-              <BaseInput size="input-large" :placeholder="t.placeholders.email" />
-              <BaseButton variant="btn-large" color="btn-black" type="submit" :text-content="t.follow" />
+              <BaseInput size="input-footer" :placeholder="t.placeholders.email" />
+              <BaseButton variant="btn-footer" color="btn-black" type="submit" :text-content="t.follow" />
           </form>
         </div>
       </div>
 
       <div class="footer-bottom">
         <p>{{ tFooter.rightsReserved }}</p>
-        <a href="#">{{ tFooter.privacyPolicy }}</a>
+        <a href="#" target="_blank" rel="noopener noreferrer">{{ tFooter.privacyPolicy }}</a>
       </div>
 
     </footer>
@@ -107,6 +107,7 @@ import {RouterLink} from "vue-router";
       }
     }
     .followForNews {
+      width: 100%;
       display: flex;
       flex-direction: column;
       gap: 20px;
@@ -116,6 +117,7 @@ import {RouterLink} from "vue-router";
         font-weight: 450;
       }
       .followForm {
+        width: 100%;
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -129,7 +131,7 @@ import {RouterLink} from "vue-router";
     gap: 12px;
     p, a {
       font-size: 15px;
-      color: $grey;
+      color: $gray;
     }
 }
 
@@ -156,11 +158,13 @@ import {RouterLink} from "vue-router";
         margin-bottom: 0;
       }
       .followForNews {
+        width: 60%;
         gap: 30px;
+        .followForm {
+          flex-direction: row;
+        }
       }
-      .followForm {
-        flex-direction: row;
-      }
+
     }
     .footer-bottom {
       flex-direction: row;

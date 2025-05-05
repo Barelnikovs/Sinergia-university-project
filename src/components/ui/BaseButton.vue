@@ -5,7 +5,7 @@ const props = defineProps({
     type: String,
     required: true,
     validator(value) {
-      return ['btn-header', 'btn-programs', 'btn-read-more', 'btn-large', '.btn-small'].includes(value);
+      return ['btn-header', 'btn-programs', 'btn-read-more', 'btn-large', 'btn-small', 'get-master-classes', 'btn-support', 'btn-trust-professional', 'btn-footer', 'btn-program-top'].includes(value);
     }
   },
   color: {
@@ -25,7 +25,7 @@ const props = defineProps({
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/scss/main';
+@use "sass:color";
 
 .base-button {
   font-family: $futura-pt;
@@ -33,47 +33,73 @@ const props = defineProps({
   font-size: 26px;
   border: none;
   border-radius: 10px;
+  cursor: pointer;
 }
-@include min-width($bp-sm) {
-  .btn-programs {
-    width: 72px;
-    height: 37px;
-    font-size: 9px !important;
-  }
-  .btn-read-more {
-    width: 288px;
-    height: 60px;
-  }
-  .btn-large {
-    width: 335px;
-    height: 80px;
-  }
-  .btn-small {
-    width: 335px;
-    height: 80px;
-  }
+.btn-programs, .btn-support {
+  width: clamp(65px, 25%, 85px);
+  height: 37px;
+  font-size: 10px;
+}
+.btn-programs {
+  width: clamp(65px, 25%, 85px)
+}
+.btn-support {
+  width: clamp(65px, 33.333%, 105px)
+}
+.btn-read-more {
+  width: clamp(200px, 100%, 450px);
+  height: 60px;
+}
+.btn-large, .get-master-classes, .btn-trust-professional {
+  width: clamp(200px, 100%, 550px);
+  height: 80px;
+}
+.btn-small {
+  width: 335px;
+  height: 80px;
+}
+.btn-footer, .btn-program-top {
+  width: clamp(200px, 100%, 450px);
+  height: 80px;
 }
 
-@include min-width($bp-lg) {
+@include min-width($bp-md) {
+  .base-button {
+    padding: 0 10px;
+  }
+
   .btn-header {
     width: 375px;
     height: 64px;
   }
   .btn-programs {
-    width: 277px;
+    width: clamp(277px, 25%, 300px);
     height: 80px;
+    font-size: 26px;
   }
   .btn-read-more {
-    width: 337px;
+    width: clamp(200px, 100%, 400px);
     height: 60px;
   }
   .btn-large {
-    width: 375px;
+    width: clamp(200px, 33.333%, 550px);
     height: 80px;
   }
-  .btn-small {
-    width: 277px;
+  .btn-support, .get-master-classes {
+    width: clamp(200px, 100%, 376px);
     height: 80px;
+    font-size: 26px;
+  }
+  .btn-small {
+    width: clamp(150px, 25%, 450px);
+    height: 80px;
+    padding: 0 5px;
+  }
+  .btn-trust-professional {
+    width: clamp(200px, 70%, 376px);
+  }
+  .btn-program-top {
+    width: clamp(200px, 50%, 376px);
   }
 }
 
@@ -81,21 +107,21 @@ const props = defineProps({
   background-color: $btn-white;
   border: 1px solid $black;
   &:hover {
-    background-color: darken($btn-white, 10%);
+    background-color: color.adjust($btn-white, $lightness: -10%);
   }
 }
 .btn-black {
   background-color: $btn-black;
   color: $white;
   &:hover {
-    background-color: darken($btn-black, 10%);
+    background-color: color.adjust($btn-black, $lightness: -10%);
   }
 }
 .btn-red, .active {
   background-color: $btn-red;
   color: $white;
   &:hover {
-    background-color: darken($btn-red, 10%)
+    background-color: color.adjust($btn-red, $lightness: +10%);
   }
 }
 

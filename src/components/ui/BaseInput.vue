@@ -1,5 +1,5 @@
 <script setup>
-const props = defineProps({
+defineProps({
   type: String,
   placeholder: {
     type: String,
@@ -9,8 +9,12 @@ const props = defineProps({
     type: String,
     required: true,
     validator(value) {
-      return ['input-large', 'input-small'].includes(value);
+      return ['input-large', 'input-small', 'input-your-career', 'input-footer'].includes(value);
     }
+  },
+  darkColor: {
+    type: Boolean,
+    default: false,
   },
   modelValue: {
     type: [String, Number],
@@ -26,16 +30,15 @@ function changeHandler(event) {
 
 <template>
   <input
-      :type="type"
+      type="text"
       :placeholder="placeholder"
-      :value="modelValue" @input="changeHandler"
-      :class="['base-input', size]"
+      :value="modelValue"
+      @input="changeHandler"
+      :class="['base-input', { 'input-dark': darkColor }, size]"
   />
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/scss/main';
-
 .base-input {
   font-family: $futura-pt;
   font-weight: 300;
@@ -43,20 +46,31 @@ function changeHandler(event) {
   border: 1px solid $black;
   border-radius: 10px;
   height: 80px;
+  padding: 0 30px;
 }
 
-@include min-width($bp-sm) {
- .input-large, .input-small {
-   width: 337px;
- }
+.input-large, .input-small, .input-your-career, .input-footer {
+  width: clamp(290px, 100%, 450px);
 }
-@include min-width($bp-lg) {
+
+.input-dark {
+  background-color: $darkGray;
+  &::placeholder {
+    color: $whitePlaceholder;
+  }
+}
+@include min-width($bp-md) {
   .input-large {
-    width: 375px;
+    width: clamp(200px, 33.333%, 450px);
   }
   .input-small {
-    width: 277px;
+    width: clamp(150px, 25%, 450px);
+  }
+  .input-your-career {
+    width: clamp(200px, 100%, 376px);
+  }
+  .input-footer {
+    width: clamp(200px, 100%, 450px);
   }
 }
-
 </style>

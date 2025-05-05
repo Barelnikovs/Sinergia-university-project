@@ -3,6 +3,7 @@ export default {
         terms: {
             title: 'Срок обучения',
             term001: '1 мес.',
+            term002: '2 мес.',
             term110: '1 года 10 мес.',
             term200: '2 года',
             term206: '2 года 6 мес.',
@@ -16,9 +17,11 @@ export default {
         formats: {
             title: 'Формат',
             faceToFace: 'Очно',
-            distance: 'Дистанционно'
+            inAbsentia: 'Заочно',
+            distance: 'Дистанционно',
+            weekendDay: 'Выходного дня',
         },
-        diploma: 'Государственный диплом СПО',
+        diplomaCollege: 'Государственный диплом СПО',
         diplomaBachelor: 'Государственный диплом ВО (Бакалавр)',
         diplomaMaster: 'Государственный диплом ВО (Магистр)',
         diplomaCourses: 'Сертификат о прохождении курса'
@@ -46,11 +49,11 @@ export default {
         }
     },
     bachelor: {
-        DesignDeveloperGames: {
+        designDeveloperGames: {
             title: 'Геймдизайн и разработка игр',
             description: ''
         },
-        ManagerInGameIndustry: {
+        managerInGameIndustry: {
             title: 'Менеджмент в игровой индустрии и киберспорте',
             description: 'Студенты изучают принципы управления, маркетинга и планирования. Получают практические навыки работы с проектами в сфере игр, киберспортивных мероприятий.'
         },

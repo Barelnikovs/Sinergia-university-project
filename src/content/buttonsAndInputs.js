@@ -3,7 +3,8 @@ export default {
     getConsultation: 'Получить консультацию',
     getMasterClasses: 'Получить мастер-классы',
     leaveRequest: 'Оставить заявку',
-    BookPlace: 'Забронировать место',
+    becomeStudent: 'Стать студентом',
+    bookPlace: 'Забронировать место',
     trustProfessional: 'Довериться профессионалу',
     askYourQuestion: 'Задать свой вопрос',
     follow: 'Подписаться',
@@ -22,6 +23,10 @@ export default {
     placeholders: {
         name: 'Имя',
         tel: 'Телефон',
-        email: 'E-mail'
+        email: 'E-mail',
+        programs: 'Направление'
     },
+    optionsSelect: ['Колледж','Бакалавриат', 'Магистратура', 'Курсы'],
+    programOfStudy: 'Программа обучения',
+    howToEnter: 'Как поступить'
 }

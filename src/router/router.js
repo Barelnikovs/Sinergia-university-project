@@ -5,8 +5,9 @@ import ProgramsView from "@/views/ProgramsView.vue";
 export default createRouter({
     history: createWebHistory(),
     routes: [
+        {path: '/', redirect: '/home'},
         {path: '/home', component: HomeView},
-        {path: '/programs', component: ProgramsView},
+        {path: '/programs/:program', component: ProgramsView},
     ],
     linkActiveClass: "active",
     linkExactActiveClass: "active",

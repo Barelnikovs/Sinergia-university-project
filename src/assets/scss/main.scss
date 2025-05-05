@@ -24,6 +24,7 @@ a {
 .container {
   width: clamp(320px, 90%, 691px);
   margin: 0 auto !important;
+  overflow: visible;
 }
 @include min-width($bp-lg) {
   .container {

@@ -13,7 +13,7 @@
           </router-link>
         </div>
         <div class="download">
-          <a href="#">
+          <a href="#" target="_blank" rel="noopener noreferrer">
             {{ tHeader.download }}
             <img src="@/assets/images/icons/download.svg" alt="download program">
           </a>
