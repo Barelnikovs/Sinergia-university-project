@@ -24,18 +24,21 @@ const formsStore = useFormsStore()
               v-model="formsStore.formLeaveRequestForAcceptanceDocuments.program"
               :placeholder="t.placeholders.programs"
               :options="t.optionsSelect"
+              name="program"
           />
           <BaseInput
               v-model="formsStore.formLeaveRequestForAcceptanceDocuments.name"
               type="text"
               :placeholder="t.placeholders.name"
               size="input-small"
+              name="name"
           />
           <BaseInput
               v-model="formsStore.formLeaveRequestForAcceptanceDocuments.telephone"
               type="tel"
               :placeholder="t.placeholders.tel"
               size="input-small"
+              name="telephone"
           />
           <BaseButton
               :text-content="t.getConsultation"

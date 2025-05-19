@@ -1,6 +1,17 @@
 <script setup>
 defineProps({
-  type: String,
+  modelValue: {
+    type: [String, Number],
+    default: '',
+  },
+  type: {
+    type: String,
+    default: 'text'
+  },
+  name: {
+    type: String,
+    required: true
+  },
   placeholder: {
     type: String,
     default: '',
@@ -16,10 +27,6 @@ defineProps({
     type: Boolean,
     default: false,
   },
-  modelValue: {
-    type: [String, Number],
-    default: '',
-  }
 })
 const emit = defineEmits(["update:modelValue"])
 
@@ -29,13 +36,13 @@ function changeHandler(event) {
 </script>
 
 <template>
-  <input
-      type="text"
-      :placeholder="placeholder"
-      :value="modelValue"
-      @input="changeHandler"
-      :class="['base-input', { 'input-dark': darkColor }, size]"
-  />
+    <input
+        type="text"
+        :placeholder="placeholder"
+        :value="modelValue"
+        @input="changeHandler"
+        :class="['base-input', { 'input-dark': darkColor }, size]"
+    />
 </template>
 
 <style scoped lang="scss">
@@ -61,7 +68,7 @@ function changeHandler(event) {
 }
 @include min-width($bp-md) {
   .input-large {
-    width: clamp(200px, 33.333%, 450px);
+    width: clamp(200px, 33.333%, 376px);
   }
   .input-small {
     width: clamp(150px, 25%, 450px);

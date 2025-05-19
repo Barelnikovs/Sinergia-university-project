@@ -8,7 +8,7 @@ const cardStore = useCardStore();
     <div class="video">
       <a :href="card.link" target="_blank" rel="noopener noreferrer">
         <img class="videoIcon" :src="card.videoIcon" alt="видео">
-        <img class="playIcon" :src="card.play" alt="проигрывать">
+        <img class="playIcon" src="@/assets/images/icons/play_yellow.svg" alt="проигрывать">
       </a>
     </div>
     <div class="description">

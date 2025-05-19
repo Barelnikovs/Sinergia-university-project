@@ -5,14 +5,14 @@ const props = defineProps({
     type: String,
     required: true,
     validator(value) {
-      return ['btn-header', 'btn-programs', 'btn-read-more', 'btn-large', 'btn-small', 'get-master-classes', 'btn-support', 'btn-trust-professional', 'btn-footer', 'btn-program-top'].includes(value);
+      return ['btn-header', 'btn-programs', 'btn-read-more', 'btn-large', 'btn-small', 'get-master-classes', 'btn-support', 'btn-trust-professional', 'btn-footer', 'btn-program-top', 'mobile-menu'].includes(value);
     }
   },
   color: {
     type: String,
     required: true,
     validator(value) {
-      return ['btn-white', 'btn-black', 'btn-red'].includes(value);
+      return ['btn-white', 'btn-black', 'btn-red', 'btn-white-red'].includes(value);
     }
   }
 })
@@ -51,7 +51,7 @@ const props = defineProps({
   height: 60px;
 }
 .btn-large, .get-master-classes, .btn-trust-professional {
-  width: clamp(200px, 100%, 550px);
+  width: clamp(200px, 100%, 376px);
   height: 80px;
 }
 .btn-small {
@@ -62,8 +62,16 @@ const props = defineProps({
   width: clamp(200px, 100%, 450px);
   height: 80px;
 }
+.mobile-menu {
+  height: 50px;
+  width: clamp(184px, 80%, 275px);
+}
 
 @include min-width($bp-md) {
+  .mobile {
+    display: none;
+  }
+
   .base-button {
     padding: 0 10px;
   }
@@ -82,7 +90,7 @@ const props = defineProps({
     height: 60px;
   }
   .btn-large {
-    width: clamp(200px, 33.333%, 550px);
+    width: clamp(200px, 33.333%, 376px);
     height: 80px;
   }
   .btn-support, .get-master-classes {
@@ -99,10 +107,31 @@ const props = defineProps({
     width: clamp(200px, 70%, 376px);
   }
   .btn-program-top {
-    width: clamp(200px, 50%, 376px);
+    height: 60px;
+  }
+}
+@include min-width($bp-lg) {
+  .mobile-tablet {
+    display: none;
+  }
+  .btn-program-top {
+    width: 278px;
+    font-size: 24px;
   }
 }
 
+.btn-white-red {
+  color: $red;
+  background-color: $white;
+  border: 1px solid $red;
+  font-size: 20px;
+  width: auto;
+  line-height: 100%;
+  padding: 20px;
+  &:hover {
+    background-color: color.adjust($white, $lightness: -3%);
+  }
+}
 .btn-white {
   background-color: $btn-white;
   border: 1px solid $black;

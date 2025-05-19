@@ -9,7 +9,7 @@ const cardStore = useCardStore();
 </script>
 
 <template>
-  <section>
+  <section id="program-of-study">
     <div class="container">
       <div class="title">
         <h2>{{ tMain.programsStudy }}</h2>

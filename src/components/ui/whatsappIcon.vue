@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <a class="background" href="#" target="_blank" rel="noopener noreferrer">
+  <a class="background" href="https://api.whatsapp.com/send/?phone=79087880515&text&app_absent=0" target="_blank" rel="noopener noreferrer">
     <img src="@/assets/images/icons/whatsapp.svg" alt="whatsapp">
   </a>
 </template>
@@ -32,7 +32,7 @@
     height: 34px;
   }
 }
-.footerIcon {
+.footerIcon, .mobile-menu-icon {
   width: 40px;
   height: 40px;
   img {

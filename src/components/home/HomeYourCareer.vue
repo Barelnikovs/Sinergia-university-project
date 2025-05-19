@@ -6,13 +6,20 @@ import BaseButton from "@/components/ui/BaseButton.vue";
 import { useFormsStore } from "@/stores/formsStore.js";
 import WriteToMessage from "@/components/common/WriteToMessage.vue";
 const formsStore = useFormsStore();
+
+defineProps({
+  career: {
+    type: String,
+    default: tMain.yourCareerInCyberSport.paintedPart
+  }
+})
 </script>
 
 <template>
   <section>
     <div class="container">
       <div class="title">
-        <h2>{{ tMain.yourCareerInCyberSport.part1 }}<span class="painted"><span>{{ tMain.yourCareerInCyberSport.paintedPart }}</span></span>
+        <h2>{{ tMain.yourCareerInCyberSport.part1 }}<span class="painted"><span>{{ career }}</span></span>
           {{ tMain.yourCareerInCyberSport.part2 }}</h2>
       </div>
       <form class="form">
@@ -20,8 +27,20 @@ const formsStore = useFormsStore();
           <p class="form__start-today">{{ tMain.startToday }}</p>
           <p class="form__take-master-classes">{{ tMain.takeFiveMasterClasses }}</p>
         </div>
-        <BaseInput v-model="formsStore.takeMasterClasses.name" size="input-your-career" :placeholder="t.placeholders.name" :darkColor="true"/>
-        <BaseInput v-model="formsStore.takeMasterClasses.telephone" size="input-your-career" :placeholder="t.placeholders.tel" :darkColor="true" />
+        <BaseInput
+            v-model="formsStore.takeMasterClasses.name"
+            size="input-your-career"
+            :placeholder="t.placeholders.name"
+            :darkColor="true"
+            name="name"
+        />
+        <BaseInput
+            v-model="formsStore.takeMasterClasses.telephone"
+            size="input-your-career"
+            :placeholder="t.placeholders.tel"
+            :darkColor="true"
+            name="telephone"
+        />
         <BaseButton variant="get-master-classes" color="btn-red" :text-content="t.getMasterClasses" />
       </form>
       <WriteToMessage />
@@ -83,7 +102,13 @@ section {
     padding: 110px 0 130px;
     .container {
       flex-direction: row;
-      gap: 88px;
+      gap: 70px;
+      .title {
+        width: 55%;
+      }
+      .form {
+        width: 45%;
+      }
     }
   }
 }
@@ -91,8 +116,11 @@ section {
 @include min-width($bp-lg) {
   section {
     margin-bottom: 130px;
+    .container {
+      gap: 80px;
+    }
     .container .title {
-      width: 70%;
+      width: 65%;
       margin-bottom: 0;
       h2 {
         font-size: 56px;
@@ -100,7 +128,7 @@ section {
       }
     }
     .container .form {
-      width: 30%;
+      width: 35%;
     }
   }
 }

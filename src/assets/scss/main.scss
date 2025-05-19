@@ -10,6 +10,9 @@ body {
   font-weight: 400;
   color: $text-color;
   background-color: $white-background;
+  &.no-scroll {
+    overflow: hidden;
+  }
 }
 a {
   text-decoration: none;
@@ -25,6 +28,11 @@ a {
   width: clamp(320px, 90%, 691px);
   margin: 0 auto !important;
   overflow: visible;
+}
+@include min-width($bp-md) {
+  body.no-scroll {
+    overflow: auto;
+  }
 }
 @include min-width($bp-lg) {
   .container {

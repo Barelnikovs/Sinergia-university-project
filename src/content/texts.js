@@ -36,7 +36,7 @@ const tMain = {
         }
     },
     programsStudy: 'Программы обучения',
-    leaveRequestForDocument: 'Оставь заявку на прием документов в 2024 году',
+    leaveRequestForDocument: 'Оставь заявку на прием документов в 2025 году',
     yourFutureInCyberSport: {
         paintedPart: 'Твое будущее',
         part1: ' в киберспорте',
@@ -303,7 +303,7 @@ const tPrograms = {
         block2: {
             title: 'Срок обучения',
             description: {
-                from4: 'от 4 семестров',
+                from4to4: 'от 4 семестров',
                 from8to10: 'от 8 до 10 семестров',
                 from8to8: '8 семестров',
                 from10to12: 'от 10 до 12 семестров',
@@ -507,14 +507,14 @@ const tPrograms = {
         }
     },
     leaveRequest: 'Оставь заявку на прием документов в 2025 году',
-    InternshipsWithPartners: {
+    internshipsWithPartners: {
         title: {
             paintedPart: 'Стажировки',
             part1: ' у партнеров'
         },
         description: 'Наши студенты получают уникальную возможность пройти практику и стажировку у ведущих компаний игровой индустрии. Мы тесно сотрудничаем с нашими партнёрами, чтобы обеспечить вам реальные проекты и задачи, которые помогут развить необходимые навыки и получить ценный опыт.',
     },
-    YourFutureInGameIndustry: {
+    yourFutureInGameIndustry: {
         title: {
             paintedPart: 'Твое будущее',
             part1: ' в игровой индустрии'
@@ -525,7 +525,7 @@ const tPrograms = {
             gameDesigner: 'Гейм-дизайнер',
             unity3D: 'Специалист широкого профиля Unity 3D',
             gameAnalyst: 'Игровой аналитик',
-            uxUi: 'UX/UI разработчик',
+            uxUiDeveloper: 'UX/UI разработчик',
             programmer: 'Программист',
             fullStack: 'Full-stack разработчик',
             androidIOS: 'Разработчик кросс-платформенных игр (Android, IOS)',
@@ -619,6 +619,7 @@ const tPrograms = {
             }
         }
     },
+    leaveRequestForDocument: 'Оставь заявку на прием документов в 2025 году',
     centerOfCareer: {
         title: {
             part1: 'Центр ',
@@ -632,6 +633,17 @@ const tPrograms = {
                 list3: 'Предложим стажировки и и проекты от партнеров',
             }
         }
+    },
+    yourCareerStartHere: {
+        gameDeveloper: 'карьера разработчика начинается здесь!',
+        artistInGames: 'карьера художника начинается здесь!',
+        digitalMedia: 'карьера в цифровых медиа начинается здесь',
+        gameDesignCollege: 'карьера гейм-дизайнера начинается здесь!',
+        motionDesign: 'карьера моушн-дизайнера начинается здесь',
+        gameDesignAndDeveloping: 'карьера разработчика и геймдизайнера начинается здесь',
+        gameDesignBachelor: 'карьера геймдизайнера начинается здесь!',
+        managementInGamingIndustryAndESport: 'карьера в игровой индустрии и киберспорте начинается здесь!',
+        managementInESportAndPhygitalSports: 'карьера в игровой индустрии и киберспорте начинается здесь!'
     },
     otherDegree: {
         title: {
@@ -667,18 +679,29 @@ const tPrograms = {
                 place: 'Бакалавриат',
                 degree: 'Гейм-дизайнер'
             },
-            ManagementInGamingIndustryAndESport: {
+            managementInGamingIndustryAndESport: {
                 place: 'Бакалавриат',
                 degree: 'Менеджмент в игровой индустрии и киберспорте'
             },
-            ManagementInESportAndPhygitalSports: {
+            managementInESportAndPhygitalSports: {
                 place: 'Магистратура',
                 degree: 'Менеджмент в киберспорте и фиджитал спорте'
             },
         }
     }
 }
-
+const tModal = {
+    modalTitle: 'Начни карьеру в киберспорте вместе с факультетом игровой индустрии',
+    formsTitle: 'Оставь заявку на обучение'
+}
+const tRequest = {
+    title: {
+        part1: 'Почти ',
+        paintedPart: 'готово!'
+    },
+    almostFinish: 'Отправка заявки завершена на 90%',
+    followForSocialMedia: 'Подпишись на наш телеграм канал, чтобы быть в курсе всех событий факультета киберспорта',
+}
 const tFooter = {
     download: 'Скачать программу обучения',
     email: 'synergycybersport@mail.com',
@@ -688,4 +711,4 @@ const tFooter = {
     privacyPolicy: 'Политика конфиденциальности'
 }
 
-export { tPrivacyPolicy, tHeader, tMain, tPrograms, tFooter }
+export { tPrivacyPolicy, tHeader, tMain, tPrograms, tRequest, tModal, tFooter }

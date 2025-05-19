@@ -5,11 +5,15 @@ import YouTubeIcon from "@/components/ui/YouTubeIcon.vue";
 import BaseInput from "@/components/ui/BaseInput.vue";
 import BaseButton from "@/components/ui/BaseButton.vue";
 import t from '@/content/buttonsAndInputs.js'
-import {RouterLink} from "vue-router";
+import {RouterLink, useRoute } from "vue-router";
+const route = useRoute();
+import {computed} from "vue";
+
+const currentPage = computed(() => route.name)
 </script>
 
 <template>
-  <div class="container">
+  <div class="container" v-if="currentPage !== 'request'">
     <footer class="footer">
       <div class="logoDownloadBlock">
         <div class="logo">
@@ -18,10 +22,11 @@ import {RouterLink} from "vue-router";
           </router-link>
         </div>
         <div class="download">
-          <a href="#" target="_blank" rel="noopener noreferrer">
+          <a href="#" target="_blank" rel="noopener noreferrer" v-if="currentPage === 'home'">
             {{ tHeader.download }}
             <img src="@/assets/images/icons/download.svg" alt="download program">
           </a>
+          <a class="connect" href="#" target="_blank" rel="noopener noreferrer" v-if="currentPage === 'programs'">{{ t.contactWithAdmissionsOffice }}</a>
         </div>
       </div>
 
@@ -44,7 +49,7 @@ import {RouterLink} from "vue-router";
             <p>{{ tFooter.doNotMissNews }}</p>
           </div>
           <form class="followForm">
-              <BaseInput size="input-footer" :placeholder="t.placeholders.email" />
+              <BaseInput size="input-footer" :placeholder="t.placeholders.email" name="email"/>
               <BaseButton variant="btn-footer" color="btn-black" type="submit" :text-content="t.follow" />
           </form>
         </div>
@@ -65,7 +70,7 @@ import {RouterLink} from "vue-router";
   .logoDownloadBlock {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 33px;
     margin-bottom: 34px;
     .logo img {
       height: 22px;
@@ -80,6 +85,11 @@ import {RouterLink} from "vue-router";
         img {
           height: 24px;
         }
+      }
+      a.connect {
+        display: block;
+        font-size: 22px;
+        line-height: 100%;
       }
     }
   }

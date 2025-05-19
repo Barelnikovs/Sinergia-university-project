@@ -36,7 +36,7 @@ const cardStore = useCardStore();
       <div class="diploma">
         <p>{{ card.diploma }}</p>
       </div>
-      <div class="more">
+      <div class="more" v-if="card.link">
         <router-link :to="`/programs/:${card.link}`" custom v-slot="{ navigate }">
           <BaseButton @click="navigate" :text-content="t.programSelection.more" color="btn-black" variant="btn-read-more" />
         </router-link>

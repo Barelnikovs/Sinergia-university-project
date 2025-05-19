@@ -8,18 +8,45 @@ import HomePayForStudy from "@/components/home/HomePayForStudy.vue";
 import HomeAboutSinergia from "@/components/home/HomeAboutSinergia.vue";
 import HomeHaveYouQuestions from "@/components/home/HomeHaveYouQuestions.vue";
 import HomeFrequentlyAskedQuestions from "@/components/home/HomeFrequentlyAskedQuestions.vue";
-import {computed, watch} from "vue";
+import ProgramsStartYourCareer from "@/components/programs/ProgramsStartYourCareer.vue";
+import ProgramsAboutProgram from "@/components/programs/ProgramsAboutProgram.vue";
+import ProgramsSubjects from "@/components/programs/ProgramsSubjects.vue";
+import ProgramsLeaveRequestForAcceptansDocument from '@/components/programs/ProgramsLeaveRequestForAcceptansDocument.vue'
+import HomeBecomePartCyberIndustry from "@/components/home/HomeBecomePartCyberIndustry.vue";
+import ProgramsPartners from "@/components/programs/ProgramsPartners.vue";
+import ProgramsYourFutureInGameIndustry from "@/components/programs/ProgramsYourFutureInGameIndustry.vue";
+import ProgramsHowToEnter from "@/components/programs/ProgramsHowToEnter.vue";
+import ProgramsLeaveRequestForDocuments from "@/components/programs/ProgramsLeaveRequestForDocuments.vue";
+import ProgramsCenterCareer from "@/components/programs/ProgramsCenterCareer.vue";
+import ProgramsOtherSpecialties from "@/components/programs/ProgramsOtherSpecialties.vue";
+
+import {computed} from "vue";
+import { useDoublePagesStore } from "@/stores/doublePagesStore.js";
+const doublePagesStore = useDoublePagesStore()
 import { useRoute } from "vue-router";
+
 const route = useRoute();
 
-const currentProgram = computed(() => route.params.program.slice(1));
-
-
+const currentProgram = computed(() => {
+  const currentPageKebabCase = route.params.program.slice(1)
+  const currentPageCamelCase = currentPageKebabCase.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase())
+  return doublePagesStore.pages[currentPageCamelCase]
+});
 </script>
 
 <template>
-  <ProgramsTop />
-  <HomeYourCareer />
+  <ProgramsTop :currentProgram="currentProgram" />
+  <ProgramsStartYourCareer :title="currentProgram.description" />
+  <ProgramsAboutProgram :description="currentProgram.aboutProgram" :textInBlocks="currentProgram.aboutProgramBlocks" />
+  <ProgramsSubjects :subjects="currentProgram.whatSubjectYouStudy" />
+  <ProgramsLeaveRequestForAcceptansDocument />
+  <HomeBecomePartCyberIndustry />
+  <ProgramsPartners />
+  <ProgramsYourFutureInGameIndustry :blocks="currentProgram.yourFutureCards" />
+  <ProgramsHowToEnter />
+  <ProgramsLeaveRequestForDocuments />
+  <ProgramsCenterCareer />
+  <HomeYourCareer :career="currentProgram.yourCareerStartHere"/>
   <HomeOurGraduates />
   <HomeOurTeacher />
   <HomeStudentSpeakAndShow />
@@ -27,6 +54,7 @@ const currentProgram = computed(() => route.params.program.slice(1));
   <HomeAboutSinergia />
   <HomeHaveYouQuestions />
   <HomeFrequentlyAskedQuestions />
+  <ProgramsOtherSpecialties />
 </template>
 
 <style scoped lang="scss">

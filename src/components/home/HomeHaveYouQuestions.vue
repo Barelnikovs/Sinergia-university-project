@@ -1,7 +1,18 @@
 <script setup>
+import { computed } from 'vue'
 import { tMain } from '@/content/texts.js'
 import t from '@/content/buttonsAndInputs.js'
 import BaseButton from "@/components/ui/BaseButton.vue";
+import { useRoute } from 'vue-router'
+const route = useRoute()
+
+const currentPageImage = computed(() => {
+  if (route.name === 'home') {
+    return new URL('@/assets/images/main/have_you_any_questions.avif', import.meta.url).href
+  } else if (route.name === 'programs') {
+    return new URL('@/assets/images/double pages/have you any questions 2.avif', import.meta.url).href
+  }
+})
 </script>
 
 <template>
@@ -38,7 +49,7 @@ import BaseButton from "@/components/ui/BaseButton.vue";
       <BaseButton color="btn-black" variant="btn-trust-professional" :text-content="t.trustProfessional" />
     </div>
     <div class="image desktop">
-      <img src="../../assets/images/main/have_you_any_questions.avif" alt="куратор">
+      <img :src="currentPageImage" alt="куратор">
     </div>
 
   </div>

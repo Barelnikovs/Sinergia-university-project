@@ -1,39 +1,36 @@
 import { defineStore } from "pinia";
 import { tMain } from "@/content/texts.js";
 import t from "@/content/buttonsAndInputs.js";
-import tPrograms from '@/content/programsStudy.js'
+import { tPrograms } from '@/content/texts.js'
+import programsStudy from "@/content/programsStudy.js";
+import programs from "@/constants/programs.js";
 import { computed, ref } from "vue";
 
 export const useCardStore = defineStore('cards', () => {
     const partsCyberIndustry = [
         {
-            videoIcon: 'src/assets/images/main/part_of_team_1.avif',
+            videoIcon: new URL('@/assets/images/main/part_of_team_1.avif', import.meta.url).href,
             link: '#',
-            play: 'src/assets/images/icons/play_yellow.svg',
             description: tMain.becomePartOfCyber.scrollBar.video1
         },
         {
-            videoIcon: 'src/assets/images/main/part_of_team_2.avif',
+            videoIcon: new URL('@/assets/images/main/part_of_team_2.avif', import.meta.url).href,
             link: '#',
-            play: 'src/assets/images/icons/play_yellow.svg',
             description: tMain.becomePartOfCyber.scrollBar.video2
         },
         {
-            videoIcon: 'src/assets/images/main/part_of_team_3.avif',
+            videoIcon: new URL('@/assets/images/main/part_of_team_3.avif', import.meta.url).href,
             link: '#',
-            play: 'src/assets/images/icons/play_yellow.svg',
             description: tMain.becomePartOfCyber.scrollBar.video3
         },
         {
-            videoIcon: 'src/assets/images/main/part_of_team_4.avif',
+            videoIcon: new URL('@/assets/images/main/part_of_team_4.avif', import.meta.url).href,
             link: '#',
-            play: 'src/assets/images/icons/play_yellow.svg',
             description: tMain.becomePartOfCyber.scrollBar.video4
         },
         {
-            videoIcon: 'src/assets/images/main/part_of_team_5.avif',
+            videoIcon: new URL('@/assets/images/main/part_of_team_5.avif', import.meta.url).href,
             link: '#',
-            play: 'src/assets/images/icons/play_yellow.svg',
             description: tMain.becomePartOfCyber.scrollBar.video5
         },
     ]
@@ -64,228 +61,236 @@ export const useCardStore = defineStore('cards', () => {
     const programsOfStudiesPlace = {
         1: [
             {
-                title: tPrograms.college.gameDeveloper.title,
+                title: programsStudy.college.gameDeveloper.title,
                 terms: [
-                    tPrograms.textsFromCards.terms.term310,
-                    tPrograms.textsFromCards.terms.term410,
+                    programsStudy.textsFromCards.terms.term310,
+                    programsStudy.textsFromCards.terms.term410,
                 ],
                 formats: [
-                    tPrograms.textsFromCards.formats.faceToFace,
-                    tPrograms.textsFromCards.formats.distance,
+                    programsStudy.textsFromCards.formats.faceToFace,
+                    programsStudy.textsFromCards.formats.distance,
                 ],
-                description: tPrograms.college.gameDeveloper.description,
-                diploma: tPrograms.textsFromCards.diplomaCollege,
-                link: 'game-developer'
+                description: programsStudy.college.gameDeveloper.description,
+                diploma: programsStudy.textsFromCards.diplomaCollege,
+                link: programs.GAME_DEVELOPER,
             },
             {
-                title: tPrograms.college.gameArtist.title,
+                title: programsStudy.college.gameArtist.title,
                 terms: [
-                    tPrograms.textsFromCards.terms.term310,
-                    tPrograms.textsFromCards.terms.term410,
+                    programsStudy.textsFromCards.terms.term310,
+                    programsStudy.textsFromCards.terms.term410,
                 ],
                 formats: [
-                    tPrograms.textsFromCards.formats.faceToFace,
-                    tPrograms.textsFromCards.formats.distance,
+                    programsStudy.textsFromCards.formats.faceToFace,
+                    programsStudy.textsFromCards.formats.distance,
                 ],
-                description: tPrograms.college.gameArtist.description,
-                diploma: tPrograms.textsFromCards.diplomaCollege,
-                link: 'game-artist'
+                description: programsStudy.college.gameArtist.description,
+                diploma: programsStudy.textsFromCards.diplomaCollege,
+                link: programs.ARTIST_IN_GAME
             },
             {
-                title: tPrograms.college.digitalMedia.title,
+                title: programsStudy.college.digitalMedia.title,
                 terms: [
-                    tPrograms.textsFromCards.terms.term110,
-                    tPrograms.textsFromCards.terms.term210,
-                    tPrograms.textsFromCards.terms.term310,
+                    programsStudy.textsFromCards.terms.term110,
+                    programsStudy.textsFromCards.terms.term210,
+                    programsStudy.textsFromCards.terms.term310,
                 ],
                 formats: [
-                    tPrograms.textsFromCards.formats.faceToFace,
-                    tPrograms.textsFromCards.formats.distance,
+                    programsStudy.textsFromCards.formats.faceToFace,
+                    programsStudy.textsFromCards.formats.distance,
                 ],
-                description: tPrograms.college.digitalMedia.description,
-                diploma: tPrograms.textsFromCards.diplomaCollege,
-                link: 'digital-media'
+                description: programsStudy.college.digitalMedia.description,
+                diploma: programsStudy.textsFromCards.diplomaCollege,
+                link: programs.DIGITAL_MEDIA
             },
             {
-                title: tPrograms.college.gameDesigner.title,
+                title: programsStudy.college.gameDesigner.title,
                 terms: [
-                    tPrograms.textsFromCards.terms.term310,
-                    tPrograms.textsFromCards.terms.term410,
+                    programsStudy.textsFromCards.terms.term310,
+                    programsStudy.textsFromCards.terms.term410,
                 ],
                 formats: [
-                    tPrograms.textsFromCards.formats.faceToFace,
-                    tPrograms.textsFromCards.formats.distance,
+                    programsStudy.textsFromCards.formats.faceToFace,
+                    programsStudy.textsFromCards.formats.distance,
                 ],
-                description: tPrograms.college.gameDesigner.description,
-                diploma: tPrograms.textsFromCards.diplomaCollege,
-                link: 'game-designer-college'
+                description: programsStudy.college.gameDesigner.description,
+                diploma: programsStudy.textsFromCards.diplomaCollege,
+                link: programs.GAME_DESIGNER_COLLEGE
             },
             {
-                title: tPrograms.college.motionDesigner.title,
+                title: programsStudy.college.motionDesigner.title,
                 terms: [
-                    tPrograms.textsFromCards.terms.term310,
-                    tPrograms.textsFromCards.terms.term410,
+                    programsStudy.textsFromCards.terms.term310,
+                    programsStudy.textsFromCards.terms.term410,
                 ],
                 formats: [
-                    tPrograms.textsFromCards.formats.faceToFace,
-                    tPrograms.textsFromCards.formats.distance,
+                    programsStudy.textsFromCards.formats.faceToFace,
+                    programsStudy.textsFromCards.formats.distance,
                 ],
-                description: tPrograms.college.motionDesigner.description,
-                diploma: tPrograms.textsFromCards.diplomaCollege,
-                link: 'motion-designer'
+                description: programsStudy.college.motionDesigner.description,
+                diploma: programsStudy.textsFromCards.diplomaCollege,
+                link: programs.MOTION_DESIGNER
             },
         ],
         2: [
             {
-                title: tPrograms.bachelor.designDeveloperGames.title,
+                title: programsStudy.bachelor.designDeveloperGames.title,
                 terms: [
-                    tPrograms.textsFromCards.terms.term406,
+                    programsStudy.textsFromCards.terms.term406,
                 ],
                 formats: [
-                    tPrograms.textsFromCards.formats.inAbsentia,
+                    programsStudy.textsFromCards.formats.inAbsentia,
                 ],
-                description: tPrograms.bachelor.designDeveloperGames.description,
-                diploma: tPrograms.textsFromCards.diplomaBachelor,
-                link: 'design-and-developer-games'
+                description: programsStudy.bachelor.designDeveloperGames.description,
+                diploma: programsStudy.textsFromCards.diplomaBachelor,
+                link: programs.GAME_DESIGNER_AND_GAME_DEVELOPMENT
             },
             {
-                title: tPrograms.bachelor.managerInGameIndustry.title,
+                title: programsStudy.bachelor.managerInGameIndustry.title,
                 terms: [
-                    tPrograms.textsFromCards.terms.term206,
-                    tPrograms.textsFromCards.terms.term306,
-                    tPrograms.textsFromCards.terms.term400,
-                    tPrograms.textsFromCards.terms.term406,
+                    programsStudy.textsFromCards.terms.term206,
+                    programsStudy.textsFromCards.terms.term306,
+                    programsStudy.textsFromCards.terms.term400,
+                    programsStudy.textsFromCards.terms.term406,
                 ],
                 formats: [
-                    tPrograms.textsFromCards.formats.faceToFace,
-                    tPrograms.textsFromCards.formats.distance,
-                    tPrograms.textsFromCards.formats.weekendDay,
+                    programsStudy.textsFromCards.formats.faceToFace,
+                    programsStudy.textsFromCards.formats.distance,
+                    programsStudy.textsFromCards.formats.weekendDay,
                 ],
-                description: tPrograms.bachelor.managerInGameIndustry.description,
-                diploma: tPrograms.textsFromCards.diplomaBachelor,
-                link: 'management-bachelor'
+                description: programsStudy.bachelor.managerInGameIndustry.description,
+                diploma: programsStudy.textsFromCards.diplomaBachelor,
+                link: programs.MANAGEMENT_IN_GAME_INDUSTRY_AND_E_SPORT
             },
             {
-                title: tPrograms.bachelor.gameDesign.title,
+                title: programsStudy.bachelor.gameDesign.title,
                 terms: [
-                    tPrograms.textsFromCards.terms.term400,
+                    programsStudy.textsFromCards.terms.term400,
                 ],
                 formats: [
-                    tPrograms.textsFromCards.formats.faceToFace,
+                    programsStudy.textsFromCards.formats.faceToFace,
                 ],
-                description: tPrograms.bachelor.gameDesign.description,
-                diploma: tPrograms.textsFromCards.diplomaBachelor,
-                link: 'game-design-bachelor',
+                description: programsStudy.bachelor.gameDesign.description,
+                diploma: programsStudy.textsFromCards.diplomaBachelor,
+                link: programs.GAME_DESIGNER_BACHELOR
             },
         ],
         3: [
             {
-                title: tPrograms.master.managerInCyberSport.title,
+                title: programsStudy.master.managerInCyberSport.title,
                 terms: [
-                    tPrograms.textsFromCards.terms.term200,
+                    programsStudy.textsFromCards.terms.term200,
                 ],
                 formats: [
-                    tPrograms.textsFromCards.formats.faceToFace,
+                    programsStudy.textsFromCards.formats.faceToFace,
                 ],
-                description: tPrograms.master.managerInCyberSport.description,
-                diploma: tPrograms.textsFromCards.diplomaMaster,
-                link: 'management-master'
+                description: programsStudy.master.managerInCyberSport.description,
+                diploma: programsStudy.textsFromCards.diplomaMaster,
+                link: programs.MANAGEMENT_IN_E_SPORT_AND_PHIGITAL_SPORT
             },
         ],
         4: [
             {
-                title: tPrograms.courses.managerCyberSportOrganization.title,
+                title: programsStudy.courses.managerCyberSportOrganization.title,
                 terms: [
-                    tPrograms.textsFromCards.terms.term001,
+                    programsStudy.textsFromCards.terms.term001,
                 ],
                 formats: [
-                    tPrograms.textsFromCards.formats.distance,
+                    programsStudy.textsFromCards.formats.distance,
                 ],
-                description: tPrograms.courses.managerCyberSportOrganization.description,
-                diploma: tPrograms.textsFromCards.diplomaCourses,
+                description: programsStudy.courses.managerCyberSportOrganization.description,
+                diploma: programsStudy.textsFromCards.diplomaCourses,
+                link: null,
             },
             {
-                title: tPrograms.courses.adminOfCyberTour.title,
+                title: programsStudy.courses.adminOfCyberTour.title,
                 terms: [
-                    tPrograms.textsFromCards.terms.term001,
+                    programsStudy.textsFromCards.terms.term001,
                 ],
                 formats: [
-                    tPrograms.textsFromCards.formats.distance,
+                    programsStudy.textsFromCards.formats.distance,
                 ],
-                description: tPrograms.courses.adminOfCyberTour.description,
-                diploma: tPrograms.textsFromCards.diplomaCourses,
+                description: programsStudy.courses.adminOfCyberTour.description,
+                diploma: programsStudy.textsFromCards.diplomaCourses,
+                link: null,
             },
             {
-                title: tPrograms.courses.liveBroadcastHost.title,
+                title: programsStudy.courses.liveBroadcastHost.title,
                 terms: [
-                    tPrograms.textsFromCards.terms.term001,
+                    programsStudy.textsFromCards.terms.term001,
                 ],
                 formats: [
-                    tPrograms.textsFromCards.formats.faceToFace,
-                    tPrograms.textsFromCards.formats.distance,
+                    programsStudy.textsFromCards.formats.faceToFace,
+                    programsStudy.textsFromCards.formats.distance,
                 ],
-                description: tPrograms.courses.liveBroadcastHost.description,
-                diploma: tPrograms.textsFromCards.diplomaCourses,
+                description: programsStudy.courses.liveBroadcastHost.description,
+                diploma: programsStudy.textsFromCards.diplomaCourses,
+                link: null,
             },
             {
-                title: tPrograms.courses.eventManager.title,
+                title: programsStudy.courses.eventManager.title,
                 terms: [
-                    tPrograms.textsFromCards.terms.term001,
+                    programsStudy.textsFromCards.terms.term001,
                 ],
                 formats: [
-                    tPrograms.textsFromCards.formats.faceToFace,
-                    tPrograms.textsFromCards.formats.distance,
+                    programsStudy.textsFromCards.formats.faceToFace,
+                    programsStudy.textsFromCards.formats.distance,
                 ],
-                description: tPrograms.courses.eventManager.description,
-                diploma: tPrograms.textsFromCards.diplomaCourses,
+                description: programsStudy.courses.eventManager.description,
+                diploma: programsStudy.textsFromCards.diplomaCourses,
+                link: null,
             },
             {
-                title: tPrograms.courses.multimediaDesign.title,
+                title: programsStudy.courses.multimediaDesign.title,
                 terms: [
-                    tPrograms.textsFromCards.terms.term001,
+                    programsStudy.textsFromCards.terms.term001,
                 ],
                 formats: [
-                    tPrograms.textsFromCards.formats.faceToFace,
-                    tPrograms.textsFromCards.formats.distance,
+                    programsStudy.textsFromCards.formats.faceToFace,
+                    programsStudy.textsFromCards.formats.distance,
                 ],
-                description: tPrograms.courses.multimediaDesign.description,
-                diploma: tPrograms.textsFromCards.diplomaCourses,
+                description: programsStudy.courses.multimediaDesign.description,
+                diploma: programsStudy.textsFromCards.diplomaCourses,
+                link: null,
             },
             {
-                title: tPrograms.courses.streamTechnologies.title,
+                title: programsStudy.courses.streamTechnologies.title,
                 terms: [
-                    tPrograms.textsFromCards.terms.term001,
+                    programsStudy.textsFromCards.terms.term001,
                 ],
                 formats: [
-                    tPrograms.textsFromCards.formats.faceToFace,
-                    tPrograms.textsFromCards.formats.distance,
+                    programsStudy.textsFromCards.formats.faceToFace,
+                    programsStudy.textsFromCards.formats.distance,
                 ],
-                description: tPrograms.courses.streamTechnologies.description,
-                diploma: tPrograms.textsFromCards.diplomaCourses,
+                description: programsStudy.courses.streamTechnologies.description,
+                diploma: programsStudy.textsFromCards.diplomaCourses,
+                link: null,
             },
             {
-                title: tPrograms.courses.streamTechnologies.title,
+                title: programsStudy.courses.streamTechnologies.title,
                 terms: [
-                    tPrograms.textsFromCards.terms.term001,
+                    programsStudy.textsFromCards.terms.term001,
                 ],
                 formats: [
-                    tPrograms.textsFromCards.formats.faceToFace,
-                    tPrograms.textsFromCards.formats.distance,
+                    programsStudy.textsFromCards.formats.faceToFace,
+                    programsStudy.textsFromCards.formats.distance,
                 ],
-                description: tPrograms.courses.streamTechnologies.description,
-                diploma: tPrograms.textsFromCards.diplomaCourses,
+                description: programsStudy.courses.streamTechnologies.description,
+                diploma: programsStudy.textsFromCards.diplomaCourses,
+                link: null,
             },
             {
-                title: tPrograms.courses.streamer.title,
+                title: programsStudy.courses.streamer.title,
                 terms: [
-                    tPrograms.textsFromCards.terms.term002,
+                    programsStudy.textsFromCards.terms.term002,
                 ],
                 formats: [
-                    tPrograms.textsFromCards.formats.faceToFace,
-                    tPrograms.textsFromCards.formats.distance,
+                    programsStudy.textsFromCards.formats.faceToFace,
+                    programsStudy.textsFromCards.formats.distance,
                 ],
-                description: tPrograms.courses.streamer.description,
-                diploma: tPrograms.textsFromCards.diplomaCourses,
+                description: programsStudy.courses.streamer.description,
+                diploma: programsStudy.textsFromCards.diplomaCourses,
+                link: null,
             },
         ]
 
@@ -461,22 +466,22 @@ export const useCardStore = defineStore('cards', () => {
     const cardsOfStudentSpeakAndShow = [
         {
             videoIcon: new URL('@/assets/images/main/students_speak_and_show_1.avif', import.meta.url).href,
-            link: '#',
+            link: 'https://rutube.ru/video/private/0ce0e0a5b52590cff25afd0fb406d655/?p=rG5mdNjwAdF0MulP_Q8t9A',
             description: tMain.OurStudentsSpeak.video1
         },
         {
             videoIcon: new URL('@/assets/images/main/students_speak_and_show_2.avif', import.meta.url).href,
-            link: '#',
+            link: 'https://rutube.ru/video/private/0ce0e0a5b52590cff25afd0fb406d655/?p=rG5mdNjwAdF0MulP_Q8t9A',
             description: tMain.OurStudentsSpeak.video2
         },
         {
             videoIcon: new URL('@/assets/images/main/students_speak_and_show_1.avif', import.meta.url).href,
-            link: '#',
+            link: 'https://rutube.ru/video/private/0ce0e0a5b52590cff25afd0fb406d655/?p=rG5mdNjwAdF0MulP_Q8t9A',
             description: tMain.OurStudentsSpeak.video3
         },
         {
             videoIcon: new URL('@/assets/images/main/students_speak_and_show_2.avif', import.meta.url).href,
-            link: '#',
+            link: 'https://rutube.ru/video/private/0ce0e0a5b52590cff25afd0fb406d655/?p=rG5mdNjwAdF0MulP_Q8t9A',
             description: tMain.OurStudentsSpeak.video4
         },
     ]
@@ -567,6 +572,74 @@ export const useCardStore = defineStore('cards', () => {
         })
     }
 
+    const cardsOfPartners = {
+        partnersImage1: new URL('@/assets/images/double pages/partners_1.png', import.meta.url).href,
+        partnersImage2: new URL('@/assets/images/double pages/partners_2.png', import.meta.url).href,
+        partnersImage3: new URL('@/assets/images/double pages/partners_3.png', import.meta.url).href,
+        partnersImage4: new URL('@/assets/images/double pages/partners_4.png', import.meta.url).href,
+        partnersImage5: new URL('@/assets/images/double pages/partners_5.png', import.meta.url).href,
+        partnersImage6: new URL('@/assets/images/double pages/partners_6.png', import.meta.url).href,
+        partnersImage7: new URL('@/assets/images/double pages/partners_7.png', import.meta.url).href,
+        partnersImage8: new URL('@/assets/images/double pages/partners_8.png', import.meta.url).href,
+    }
+
+    const cardsOtherSpecialties = [
+        {
+            id: programs.GAME_DEVELOPER,
+            studiesPlace: tPrograms.otherDegree.degrees.gameDeveloper.place,
+            title: tPrograms.otherDegree.degrees.gameDeveloper.degree,
+            image: new URL('@/assets/images/double pages/other specialties 5.avif', import.meta.url).href,
+        },
+        {
+            id: programs.ARTIST_IN_GAME,
+            studiesPlace: tPrograms.otherDegree.degrees.artistInGames.place,
+            title: tPrograms.otherDegree.degrees.artistInGames.degree,
+            image: new URL('@/assets/images/double pages/other specialties 1.avif', import.meta.url).href,
+        },
+        {
+            id: programs.DIGITAL_MEDIA,
+            studiesPlace: tPrograms.otherDegree.degrees.digitalMedia.place,
+            title: tPrograms.otherDegree.degrees.digitalMedia.degree,
+            image: new URL('@/assets/images/double pages/other specialties 2.avif', import.meta.url).href,
+        },
+        {
+            id: programs.GAME_DESIGNER_COLLEGE,
+            studiesPlace: tPrograms.otherDegree.degrees.gameDesignCollege.place,
+            title: tPrograms.otherDegree.degrees.gameDesignCollege.degree,
+            image: new URL('@/assets/images/double pages/other specialties 3.avif', import.meta.url).href,
+        },
+        {
+            id: programs.MOTION_DESIGNER,
+            studiesPlace: tPrograms.otherDegree.degrees.motionDesign.place,
+            title: tPrograms.otherDegree.degrees.motionDesign.degree,
+            image: new URL('@/assets/images/double pages/other specialties 4.avif', import.meta.url).href,
+        },
+        {
+            id: programs.GAME_DESIGNER_AND_GAME_DEVELOPMENT,
+            studiesPlace: tPrograms.otherDegree.degrees.gameDesignAndDeveloping.place,
+            title: tPrograms.otherDegree.degrees.gameDesignAndDeveloping.degree,
+            image: new URL('@/assets/images/double pages/other specialties 5.avif', import.meta.url).href,
+        },
+        {
+            id: programs.GAME_DESIGNER_BACHELOR,
+            studiesPlace: tPrograms.otherDegree.degrees.gameDesignBachelor.place,
+            title: tPrograms.otherDegree.degrees.gameDesignBachelor.degree,
+            image: new URL('@/assets/images/double pages/other specialties 5.avif', import.meta.url).href,
+        },
+        {
+            id: programs.MANAGEMENT_IN_GAME_INDUSTRY_AND_E_SPORT,
+            studiesPlace: tPrograms.otherDegree.degrees.managementInGamingIndustryAndESport.place,
+            title: tPrograms.otherDegree.degrees.managementInGamingIndustryAndESport.degree,
+            image: new URL('@/assets/images/double pages/other specialties 5.avif', import.meta.url).href,
+        },
+        {
+            id: programs.MANAGEMENT_IN_E_SPORT_AND_PHIGITAL_SPORT,
+            studiesPlace: tPrograms.otherDegree.degrees.managementInESportAndPhygitalSports.place,
+            title: tPrograms.otherDegree.degrees.managementInESportAndPhygitalSports.degree,
+            image: new URL('@/assets/images/double pages/other specialties 5.avif', import.meta.url).href,
+        },
+    ]
+
     return {
         partsCyberIndustry,
         placesOfStudy,
@@ -582,6 +655,8 @@ export const useCardStore = defineStore('cards', () => {
         cardsOfStudentSpeakAndShow,
         cardsAboutSinergia,
         frequentlyAskedQuestions,
-        toggleStatusFrequentlyAskedQuestions
+        toggleStatusFrequentlyAskedQuestions,
+        cardsOfPartners,
+        cardsOtherSpecialties
     };
 })

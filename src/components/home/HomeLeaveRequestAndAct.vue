@@ -12,23 +12,23 @@ const formsStore = useFormsStore()
 <template>
   <div class="container">
     <section>
-
       <div class="title">
         <h2>{{ tMain.leaveRequestForAdmission.part1 }}<span class="painted">{{ tMain.leaveRequestForAdmission.paintedPart }}</span>{{ tMain.leaveRequestForAdmission.part2 }}</h2>
       </div>
-
       <form>
         <div class="get-consultation">
           <BaseInput
               v-model="formsStore.formLeaveRequestAndAct.name"
               type="text"
               :placeholder="t.placeholders.name"
+              name="name"
               size="input-large"
           />
           <BaseInput
               v-model="formsStore.formLeaveRequestAndAct.telephone"
               type="tel"
               :placeholder="t.placeholders.tel"
+              name="telephone"
               size="input-large"
           />
           <BaseButton
@@ -37,11 +37,9 @@ const formsStore = useFormsStore()
               color="btn-black"
           />
         </div>
-
         <WriteToMessage />
         <PrivacyPolicy v-model="formsStore.formLeaveRequestAndAct.agreement" />
       </form>
-
     </section>
   </div>
 </template>

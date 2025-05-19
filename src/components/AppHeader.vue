@@ -1,6 +1,14 @@
 <script setup>
-  import {tHeader} from "@/content/texts.js";
-  import {RouterLink} from "vue-router";
+import BaseButton from "@/components/ui/BaseButton.vue";
+import { tHeader } from "@/content/texts.js";
+import tButtons from '@//content/buttonsAndInputs.js'
+import { computed } from 'vue'
+import { RouterLink, useRoute } from "vue-router";
+const route = useRoute();
+import { useModalsStore } from "@/stores/modalsStore.js";
+const modalsStore = useModalsStore();
+
+const currentPage = computed(() => route.name)
 </script>
 
 <template>
@@ -13,14 +21,20 @@
           </router-link>
         </div>
         <div class="download">
-          <a href="#" target="_blank" rel="noopener noreferrer">
+          <a href="#" target="_blank" rel="noopener noreferrer" v-if="currentPage === 'home' || currentPage === 'request'">
             {{ tHeader.download }}
             <img src="@/assets/images/icons/download.svg" alt="download program">
           </a>
+          <BaseButton
+              color="btn-white-red"
+              variant="btn-header"
+              :text-content="tButtons.contactWithAdmissionsOffice"
+              v-if="currentPage === 'programs'"
+          />
         </div>
         <div class="callAndMenu">
           <img src="@/assets/images/icons/call.svg" alt="call">
-          <img src="@/assets/images/icons/menu.svg" alt="menu">
+          <img src="@/assets/images/icons/menu.svg" alt="menu" @click="modalsStore.openMobileMenu">
         </div>
       </div>
     </header>
@@ -52,17 +66,13 @@
     }
   }
 }
-@include min-width($bp-lg) {
+.line {
+  border-bottom: 1px solid rgba(239, 239, 239, 1);
+  width: 100%;
+}
+@include min-width($bp-md) {
   .header {
-    margin-top: 60px;
     .logoDownloadBlock {
-      display: flex;
-      justify-content: space-between;
-      .logo {
-        img {
-          height: 38px;
-        }
-      }
       .callAndMenu {
         display: none
       }
@@ -83,14 +93,24 @@
       }
     }
   }
-}
-.line {
-  border-bottom: 1px solid rgba(239, 239, 239, 1);
-  width: 100%;
-}
-@include min-width($bp-lg) {
   .line {
     display: none;
+  }
+}
+@include min-width($bp-lg) {
+  .header {
+    margin-top: 60px;
+    margin-bottom: 35px;
+    .logoDownloadBlock {
+      display: flex;
+      justify-content: space-between;
+      .logo {
+        align-self: flex-end;
+        img {
+          height: 38px;
+        }
+      }
+    }
   }
 }
 </style>

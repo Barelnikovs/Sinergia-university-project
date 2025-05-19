@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <a class="background" href="#" target="_blank" rel="noopener noreferrer">
+  <a class="background" href="tg://resolve?domain=cybersport_synergy_bot&start=c1722525059190-ds" target="_blank" rel="noopener noreferrer">
     <img src="@/assets/images/icons/telegram.svg" alt="telegram">
   </a>
 </template>
@@ -32,7 +32,7 @@
     height: 34px;
   }
 }
-.footerIcon {
+.footerIcon, .mobile-menu-icon {
   width: 40px;
   height: 40px;
   img {

@@ -35,8 +35,6 @@ const updateValue = (event) => {
       <p>{{ tPrivacyPolicy.text }}<a href="#" target="_blank" rel="noopener noreferrer">{{ tPrivacyPolicy.link }}</a></p>
     </div>
   </div>
-
-
 </template>
 
 <style scoped lang="scss">

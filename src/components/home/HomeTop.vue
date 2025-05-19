@@ -1,6 +1,8 @@
 <script setup>
 import {tMain} from "@/content/texts.js";
 import t from '@/content/buttonsAndInputs.js'
+import { useScrollTo } from "@/functions/useScrollTo.js";
+const { scrollToBlock } = useScrollTo();
 import BaseButton from "@/components/ui/BaseButton.vue";
 import HomeBanner from "@/components/home/HomeBanner.vue";
 </script>
@@ -16,7 +18,12 @@ import HomeBanner from "@/components/home/HomeBanner.vue";
           <p>{{ tMain.studyProgram }}</p>
         </div>
         <div>
-          <BaseButton color="btn-red" variant="btn-header" :text-content="t.studyProgram" />
+          <BaseButton
+              color="btn-red"
+              variant="btn-header"
+              :text-content="t.studyProgram"
+              @click="scrollToBlock('program-of-study')"
+          />
         </div>
       </div>
       <HomeBanner />
