@@ -1,7 +1,4 @@
 <script setup>
-import { computed } from "vue";
-import useVuelidate from "@vuelidate/core";
-import { minLength, helpers } from "@vuelidate/validators";
 import t from "@/content/buttonsAndInputs.js";
 import {tMain} from "@/content/texts.js";
 import BaseInput from "@/components/ui/BaseInput.vue";
@@ -11,13 +8,7 @@ import PrivacyPolicy from "@/components/common/PrivacyPolicy.vue";
 import { useFormsStore } from '@/stores/formsStore.js'
 const formsStore = useFormsStore()
 
-const rules = computed(() => ({
-  name: {
-    minLength: helpers.withMessage(`Минимальная длинна: 3 символа`, minLength(3)),
-  },
-}))
 
-const v$ = useVuelidate(rules, formsStore.formStartYourFutureInCyber)
 </script>
 
 <template>
@@ -29,11 +20,10 @@ const v$ = useVuelidate(rules, formsStore.formStartYourFutureInCyber)
       <form>
         <div class="get-consultation">
           <BaseInput
-              v-model="v$.name.$model"
+              v-model="formsStore.formStartYourFutureInCyber.name"
               type="text"
               name="name"
               :placeholder="t.placeholders.name"
-              :errors="v$.name.$errors"
               size="input-large"
           />
           <BaseInput
