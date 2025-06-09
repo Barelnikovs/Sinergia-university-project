@@ -5,41 +5,44 @@ import BaseInput from "@/components/ui/BaseInput.vue";
 import BaseButton from "@/components/ui/BaseButton.vue";
 import { useFormsStore } from "@/stores/formsStore.js";
 import WriteToMessage from "@/components/common/WriteToMessage.vue";
+import {computed} from "vue";
 const formsStore = useFormsStore();
 
-defineProps({
-  career: {
-    type: String,
-    default: tMain.yourCareerInCyberSport.paintedPart
-  }
-})
+const v$ = formsStore.getVuelidate('formStartYourFutureInCyber')
+const isSubmitFailed = computed(() => formsStore.forms['formStartYourFutureInCyber'].failedSubmit)
+const submitForm = async () => formsStore.handleSubmit('formStartYourFutureInCyber', v$)
 </script>
 
 <template>
   <section>
     <div class="container">
       <div class="title">
-        <h2>{{ tMain.yourCareerInCyberSport.part1 }}<span class="painted"><span>{{ career }}</span></span>
+        <h2>{{ tMain.yourCareerInCyberSport.part1 }}<span class="painted">{{ tMain.yourCareerInCyberSport.paintedPart }}</span>
           {{ tMain.yourCareerInCyberSport.part2 }}</h2>
       </div>
-      <form class="form">
+      <form class="form" @submit.prevent="submitForm">
         <div class="form__title">
           <p class="form__start-today">{{ tMain.startToday }}</p>
           <p class="form__take-master-classes">{{ tMain.takeFiveMasterClasses }}</p>
         </div>
         <BaseInput
-            v-model="formsStore.takeMasterClasses.name"
+            v-model="v$.name.$model"
+            :errors="v$.name.$errors"
+            :showErrors="isSubmitFailed"
             size="input-your-career"
             :placeholder="t.placeholders.name"
             :darkColor="true"
             name="name"
         />
         <BaseInput
-            v-model="formsStore.takeMasterClasses.telephone"
+            v-model="v$.telephone.$model"
+            :errors="v$.telephone.$errors"
+            :showErrors="isSubmitFailed"
             size="input-your-career"
             :placeholder="t.placeholders.tel"
             :darkColor="true"
             name="telephone"
+            mask="+{7} (000) 000 00 00"
         />
         <BaseButton variant="get-master-classes" color="btn-red" :text-content="t.getMasterClasses" />
       </form>
@@ -123,8 +126,8 @@ section {
       width: 65%;
       margin-bottom: 0;
       h2 {
-        font-size: 56px;
-        line-height: 100%;
+        font-size: 50px;
+        line-height: 110%;
       }
     }
     .container .form {

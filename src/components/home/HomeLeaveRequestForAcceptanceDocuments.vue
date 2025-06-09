@@ -1,13 +1,18 @@
 <script setup>
-import t from "@/content/buttonsAndInputs.js";
-import {tMain} from "@/content/texts.js";
 import BaseInput from "@/components/ui/BaseInput.vue";
 import BaseButton from "@/components/ui/BaseButton.vue";
 import BaseSelect from "@/components/ui/BaseSelect.vue";
 import WriteToMessage from "@/components/common/WriteToMessage.vue";
 import PrivacyPolicy from "@/components/common/PrivacyPolicy.vue";
-import { useFormsStore } from '@/stores/formsStore.js'
-const formsStore = useFormsStore()
+import t from "@/content/buttonsAndInputs.js";
+import {tMain} from "@/content/texts.js";
+import { useFormsStore } from "@/stores/formsStore.js";
+import {computed} from "vue";
+const formsStore = useFormsStore();
+
+const v$ = formsStore.getVuelidate('formLeaveRequestForAcceptanceDocuments')
+const isSubmitFailed = computed(() => formsStore.forms['formLeaveRequestForAcceptanceDocuments'].failedSubmit)
+const submitForm = async () => formsStore.handleSubmit('formLeaveRequestForAcceptanceDocuments', v$)
 </script>
 
 <template>
@@ -18,37 +23,47 @@ const formsStore = useFormsStore()
         <h2>{{ tMain.leaveRequestForDocument }}</h2>
       </div>
 
-      <form>
+      <form @submit.prevent="submitForm">
         <div class="get-consultation">
           <BaseSelect
-              v-model="formsStore.formLeaveRequestForAcceptanceDocuments.program"
+              v-model="v$.program.$model"
+              :errors="v$.program.$errors"
+              :showErrors="isSubmitFailed"
               :placeholder="t.placeholders.programs"
               :options="t.optionsSelect"
               name="program"
           />
           <BaseInput
-              v-model="formsStore.formLeaveRequestForAcceptanceDocuments.name"
-              type="text"
+              v-model.trim="v$.name.$model"
+              :errors="v$.name.$errors"
+              :showErrors="isSubmitFailed"
               :placeholder="t.placeholders.name"
               size="input-small"
               name="name"
           />
           <BaseInput
-              v-model="formsStore.formLeaveRequestForAcceptanceDocuments.telephone"
-              type="tel"
+              v-model="v$.telephone.$model"
+              :errors="v$.telephone.$errors"
+              :showErrors="isSubmitFailed"
               :placeholder="t.placeholders.tel"
               size="input-small"
               name="telephone"
+              mask="+{7} (000) 000 00 00"
           />
           <BaseButton
               :text-content="t.getConsultation"
               variant="btn-small"
               color="btn-black"
+              type="submit"
           />
         </div>
 
         <WriteToMessage />
-        <PrivacyPolicy v-model="formsStore.formLeaveRequestForAcceptanceDocuments.agreement" />
+        <PrivacyPolicy
+            v-model="v$.agreement.$model"
+            :errors="v$.agreement.$errors"
+            :showErrors="isSubmitFailed"
+        />
       </form>
 
     </section>

@@ -147,8 +147,9 @@ section {
         .block3 {
           grid-row: 1 / 2;
           grid-column: 4 / 6;
+          padding: 15px;
           img {
-            width: 80px;
+            width: 70px;
           }
         }
         .block4 {
@@ -175,13 +176,15 @@ section {
         .block7 {
           grid-row: 2 / 3;
           grid-column: 3 / 5;
+          padding: 10px;
           img {
-            width: 66px;
+            width: 56px;
           }
         }
         .block8 {
           grid-row: 2 / 3;
           grid-column: 5 / 7;
+          padding: 15px;
           img {
             width: 73px;
           }

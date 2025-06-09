@@ -5,6 +5,7 @@ import BaseButton from "@/components/ui/BaseButton.vue";
 import WriteToMessage from "@/components/common/WriteToMessage.vue";
 import PrivacyPolicy from "@/components/common/PrivacyPolicy.vue";
 import { useFormsStore } from '@/stores/formsStore.js'
+import {computed} from "vue";
 const formsStore = useFormsStore()
 
 defineProps({
@@ -13,6 +14,10 @@ defineProps({
     required: true,
   }
 })
+
+const v$ = formsStore.getVuelidate('formReserveStudyPlace')
+const isSubmitFailed = computed(() => formsStore.forms['formReserveStudyPlace'].failedSubmit)
+const submitForm = async () => formsStore.handleSubmit('formReserveStudyPlace', v$)
 </script>
 
 <template>
@@ -23,21 +28,24 @@ defineProps({
         <h2>{{ title }}</h2>
       </div>
 
-      <form>
+      <form @submit.prevent="submitForm">
         <div class="get-consultation">
           <BaseInput
-              v-model="formsStore.formProgramsStartYourCareer.name"
-              type="text"
+              v-model.trim="v$.name.$model"
+              :errors="v$.name.$errors"
+              :showErrors="isSubmitFailed"
               :placeholder="t.placeholders.name"
               size="input-large"
               name="name"
           />
           <BaseInput
-              v-model="formsStore.formProgramsStartYourCareer.telephone"
-              type="tel"
+              v-model="v$.telephone.$model"
+              :errors="v$.telephone.$errors"
+              :showErrors="isSubmitFailed"
               :placeholder="t.placeholders.tel"
               size="input-large"
               name="telephone"
+              mask="+{7} (000) 000 00 00"
           />
           <BaseButton
               :text-content="t.leaveRequest"
@@ -47,7 +55,11 @@ defineProps({
         </div>
 
         <WriteToMessage />
-        <PrivacyPolicy v-model="formsStore.formProgramsStartYourCareer.agreement" />
+        <PrivacyPolicy
+            v-model="v$.agreement.$model"
+            :errors="v$.agreement.$errors"
+            :showErrors="isSubmitFailed"
+        />
       </form>
 
     </section>

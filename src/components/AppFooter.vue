@@ -1,4 +1,5 @@
 <script setup>
+import {computed} from "vue";
 import {tFooter, tHeader} from "../content/texts.js";
 import TelegramIcon from "@/components/ui/TelegramIcon.vue";
 import YouTubeIcon from "@/components/ui/YouTubeIcon.vue";
@@ -7,9 +8,15 @@ import BaseButton from "@/components/ui/BaseButton.vue";
 import t from '@/content/buttonsAndInputs.js'
 import {RouterLink, useRoute } from "vue-router";
 const route = useRoute();
-import {computed} from "vue";
+import { useFormsStore } from "@/stores/formsStore.js";
+const formsStore = useFormsStore();
+
 
 const currentPage = computed(() => route.name)
+
+const v$ = formsStore.getVuelidate('footerForm')
+const isSubmitFailed = computed(() => formsStore.forms['footerForm'].failedSubmit)
+const submitForm = async () => formsStore.handleSubmit('footerForm', v$)
 </script>
 
 <template>
@@ -48,8 +55,15 @@ const currentPage = computed(() => route.name)
           <div>
             <p>{{ tFooter.doNotMissNews }}</p>
           </div>
-          <form class="followForm">
-              <BaseInput size="input-footer" :placeholder="t.placeholders.email" name="email"/>
+          <form class="followForm" @submit.prevent="submitForm">
+              <BaseInput
+                  v-model.trim="v$.email.$model"
+                  :errors="v$.email.$errors"
+                  :showErrors="isSubmitFailed"
+                  size="input-footer"
+                  :placeholder="t.placeholders.email"
+                  name="email"
+              />
               <BaseButton variant="btn-footer" color="btn-black" type="submit" :text-content="t.follow" />
           </form>
         </div>

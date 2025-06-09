@@ -1,12 +1,17 @@
 <script setup>
-import t from "@/content/buttonsAndInputs.js";
-import {tMain} from "@/content/texts.js";
 import BaseInput from "@/components/ui/BaseInput.vue";
 import BaseButton from "@/components/ui/BaseButton.vue";
 import WriteToMessage from "@/components/common/WriteToMessage.vue";
 import PrivacyPolicy from "@/components/common/PrivacyPolicy.vue";
+import t from "@/content/buttonsAndInputs.js";
+import {tMain} from "@/content/texts.js";
 import { useFormsStore } from '@/stores/formsStore.js'
+import {computed} from "vue";
 const formsStore = useFormsStore()
+
+const v$ = formsStore.getVuelidate('formLeaveRequestAndAct')
+const isSubmitFailed = computed(() => formsStore.forms['formLeaveRequestAndAct'].failedSubmit)
+const submitForm = async () => formsStore.handleSubmit('formLeaveRequestAndAct', v$)
 </script>
 
 <template>
@@ -15,30 +20,39 @@ const formsStore = useFormsStore()
       <div class="title">
         <h2>{{ tMain.leaveRequestForAdmission.part1 }}<span class="painted">{{ tMain.leaveRequestForAdmission.paintedPart }}</span>{{ tMain.leaveRequestForAdmission.part2 }}</h2>
       </div>
-      <form>
+      <form @submit.prevent="submitForm">
         <div class="get-consultation">
           <BaseInput
-              v-model="formsStore.formLeaveRequestAndAct.name"
+              v-model.trim="v$.name.$model"
+              :errors="v$.name.$errors"
+              :showErrors="isSubmitFailed"
               type="text"
               :placeholder="t.placeholders.name"
               name="name"
               size="input-large"
           />
           <BaseInput
-              v-model="formsStore.formLeaveRequestAndAct.telephone"
-              type="tel"
+              v-model="v$.telephone.$model"
+              :errors="v$.telephone.$errors"
+              :showErrors="isSubmitFailed"
               :placeholder="t.placeholders.tel"
               name="telephone"
               size="input-large"
+              mask="+{7} (000) 000 00 00"
           />
           <BaseButton
               :text-content="t.leaveRequest"
               variant="btn-large"
               color="btn-black"
+              type="submit"
           />
         </div>
         <WriteToMessage />
-        <PrivacyPolicy v-model="formsStore.formLeaveRequestAndAct.agreement" />
+        <PrivacyPolicy
+            v-model="v$.agreement.$model"
+            :errors="v$.agreement.$errors"
+            :showErrors="isSubmitFailed"
+        />
       </form>
     </section>
   </div>
