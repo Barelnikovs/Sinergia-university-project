@@ -436,19 +436,19 @@ export const useCardStore = defineStore('cards', () => {
             id: 'careersCenter',
             title: tMain.supportOfStudent.centerOfCareer.title,
             description: tMain.supportOfStudent.centerOfCareer.description,
-            image: 'src/assets/images/main/support_of_student_1.avif'
+            image: new URL('@/assets/images/main/support_of_student_1.avif', import.meta.url).href
         },
         {
             id: 'practiceAndProjects',
             title: tMain.supportOfStudent.practiceAndProjects.title,
             description: tMain.supportOfStudent.practiceAndProjects.description,
-            image: 'src/assets/images/main/support_of_student_2.avif'
+            image: new URL('@/assets/images/main/support_of_student_2.avif', import.meta.url).href
         },
         {
             id: 'community',
             title: tMain.supportOfStudent.community.title,
             description: tMain.supportOfStudent.community.description,
-            image: 'src/assets/images/main/support_of_student_3.avif'
+            image: new URL('@/assets/images/main/support_of_student_3.avif', import.meta.url).href
         }
     ]
 
