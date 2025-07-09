@@ -309,23 +309,23 @@ export const useCardStore = defineStore('cards', () => {
 
     const cardsOfYourFuture = [
         {
-            videoIcon: 'src/assets/images/main/future_in_cyber_1.avif',
+            videoIcon: new URL('@/assets/images/main/future_in_cyber_1.avif', import.meta.url).href,
             description: tMain.yourFutureInCyberSport.scrollBar.img1
         },
         {
-            videoIcon: 'src/assets/images/main/future_in_cyber_2.avif',
+            videoIcon: new URL('@/assets/images/main/future_in_cyber_2.avif', import.meta.url).href,
             description: tMain.yourFutureInCyberSport.scrollBar.img2
         },
         {
-            videoIcon: 'src/assets/images/main/future_in_cyber_3.avif',
+            videoIcon: new URL('@/assets/images/main/future_in_cyber_3.avif', import.meta.url).href,
             description: tMain.yourFutureInCyberSport.scrollBar.img3
         },
         {
-            videoIcon: 'src/assets/images/main/future_in_cyber_4.avif',
+            videoIcon: new URL('@/assets/images/main/future_in_cyber_4.avif', import.meta.url).href,
             description: tMain.yourFutureInCyberSport.scrollBar.img4
         },
         {
-            videoIcon: 'src/assets/images/main/future_in_cyber_5.avif',
+            videoIcon: new URL('@/assets/images/main/future_in_cyber_5.avif', import.meta.url).href,
             description: tMain.yourFutureInCyberSport.scrollBar.img5
         },
     ]
